@@ -111,6 +111,7 @@ input {
 
 #nextBtn {
     position: absolute;
+    cursor: pointer;
     bottom: 12px;
     right: 30px;
 }
@@ -131,7 +132,7 @@ input {
     position: absolute;
     width: 10%;
     top: 80%;
-    left: 60%;
+    left: 0%;
 }
 
 .gamebody img {
