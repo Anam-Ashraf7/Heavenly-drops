@@ -111,7 +111,7 @@ input {
 
 #nextBtn {
     position: absolute;
-    bottom: 20px;
+    bottom: 12px;
     right: 30px;
 }
 
@@ -272,11 +272,12 @@ input {
 
     #basket {
         width: 40%;
-        top: 80%;
+        top: 75%;
     }
 
     .board {
         gap: 80px;
+        font-size: 0.8rem;
     }
 
     #instruction {
@@ -293,10 +294,15 @@ input {
         width: 50vh;
     }
 
+    #nextBtn {
+        height: 5vh;
+    }
+
     /* Gameover */
 
     #gameover {
         height: 80vh;
+        margin: 0px;
         margin-top: 250px;
     }    
 
