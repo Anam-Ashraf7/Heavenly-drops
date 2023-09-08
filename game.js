@@ -90,8 +90,8 @@ function generateFruits() {
         const maxTranslateX = screenWidth - fruitWidth;
         let viewWidth1 = generateNumber(10,maxTranslateX / screenWidth * 100)
         currentFruit.style.transform = `translateX(${viewWidth1}vw)`
-        let second1 = generateNumber(1,3)
-        currentFruit.style.animationDuration = `${second1}s`
+        let second = generateNumber(1,3)
+        currentFruit.style.animationDuration = `${second}s`
         basket.style.width = 120 + "px"
         basket.style.top = 82 + "%"
     }
@@ -99,11 +99,11 @@ function generateFruits() {
     else if (localStorage.getItem("difficulty") == "difficult") {
         fruits.innerHTML += allfruits[generateNumber(1,5)]
         currentFruit = document.querySelector(".fruits .gift:last-child")
-        currentFruit.style.transform = `translateX(${viewWidth}vw)`
         const screenWidth = window.innerWidth;
         const fruitWidth = currentFruit.clientWidth;
         const maxTranslateX = screenWidth - fruitWidth;
         let viewWidth = generateNumber(10,maxTranslateX / screenWidth * 100)
+        currentFruit.style.transform = `translateX(${viewWidth}vw)`
         let second = generateNumber(1,2)
         currentFruit.style.animationDuration = `${second}s`
         basket.style.width = 90 + "px"
