@@ -7,14 +7,21 @@
     <title>Heavenly Drops</title>
 </head>
 <body id="gameover">
-    <div>
-        <img src="./assets/You are the chosen one! Mobile.png" alt="">
+    <div id="names"> <h1></h1> </div>
+    <div id="message">
     </div>
-    <div>
-        <h1>Score: <br> 30/30</h1>
+    <div id="gameinfo">
+        <div>
+            <h1 id="highscore">Highscore: <br> <span>0</span></h1>
+        </div>
+        <div>
+            <h1 id="score">Score: <br> <span></span></h1>
+        </div>
+        <div class="button">
+            <button id="playagainbtn" type="button">PLAY AGAIN</button>
+            <button id="home" type="button">HOME</button>
+        </div>
     </div>
-    <div class="playagain">
-        <button type="button">PLAY AGAIN</button>
-    </div>
+    <script src="gameover.js"></script>
 </body>
 </html>

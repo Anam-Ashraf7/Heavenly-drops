@@ -8,11 +8,11 @@
 </head>
 <body class="gamebody" id="gamebody">
     <div class="board">
-        <div class="score">
-            <h1>Score: 0/30</h1>
+        <div class="score-board">
+            <h1 id="score">Score: <span>0</span></h1>
         </div>
-        <div class="time">
-            <h1>0:30</h1>
+        <div class="timer">
+            <h1 id="time">0:<span>00</span></h1>
         </div>
     </div>
     <div class="fruits">
@@ -33,10 +33,10 @@
             Each successfully caught gift will help the village as well as give you points
             </li>
             <li>
-            You need to accumulate certain number of points before the time limit to win the game
+            You need to accumulate as much number of points before the time limit to win the game
             </li>
         </ul>
-        <button type="button">Continue</button>
+        <button id="continue" type="button">Continue</button>
     </div>
     <div class="end">1</div>
     <script src="game.js"></script>

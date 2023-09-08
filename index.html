@@ -9,23 +9,30 @@
 <body id="main">
     <div class="container">
         <h1 id="logo">Heavenly Drops</h1>
-        <div class="form">
+        <div class="playerinfo">
+            <form action="storyline.html">
                 <label for="name">
                     <h2>Player Name</h2>
                 </label>
-                <input type="text" name="name" id="name">
+                <input type="text" name="name" id="name" required>
                 <label for="nickname">
                     <h2>Nickname</h2>
                 </label>
-                <input type="text" name="name" id="nickname">
-                <h2 id="gametype">Choose Your Difficulty</h2>
-                <div class="difficulty">
-                    <button type="button">Easy</button>
-                    <button type="button">Medium</button>
-                    <button type="button">Difficulty</button>
-                </div>
-                <button id="playbtn" type="submit">PLAY</button>
-        </div>
+                <input type="text" name="name" id="nickname" required>
+                <!-- <h2>Choose Your Difficulty</h2> -->
+                <!-- <div class="difficulty">
+                    <button class="button" id="easy" type="button">Easy</button>
+                    <button class="button" id="medium" type="button">Medium</button>
+                    <button class="button" id="difficult" type="button">Difficult</button>
+                </div> -->
+                <label for="difficulty"><h2>Choose Your Difficulty</h2></label>
+                <select name="difficulty" id="difficulty">
+                    <option label="Easy" value="easy"></option>
+                    <option label="Medium" value="medium"></option>
+                    <option label="Difficult" value="difficult"></option>
+                </select>
+                    <button id="playbtn" type="submit">PLAY</button>
+            </form>
     </div>
     <script src="index.js"></script>
 </body>

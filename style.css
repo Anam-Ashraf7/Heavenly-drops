@@ -9,6 +9,10 @@
     box-sizing: border-box;
     font-family: 'Love Ya Like A Sister', cursive;
 }
+body{
+    overflow: hidden;
+
+}
 
 #main {
     background-image: url(./assets/bgm4.jpeg);
@@ -21,7 +25,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 30px;
+    /* margin: 30px; */
 }
 
 .container > h1 {
@@ -31,7 +35,7 @@
     color: black;
 }
 
-.form {
+form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -45,7 +49,7 @@
     border: 5px solid black;
 }
 
-.form > button {
+form > button {
     background-color: green;
     color: white;
     padding: 3px 10px;
@@ -58,10 +62,11 @@
 input {
     height: 25px;
     width: 250px;
-    border-radius: 2px;
+    border-radius: 5px;
+    border: 3px solid black;
 }
 
-#gametype {
+form > h2{
     margin-top: 20px;
 }
 
@@ -69,13 +74,31 @@ input {
     margin-bottom: 20px;
 }
 
-.difficulty button{
+.button{
     padding: 5px;
     border-radius: 5px;
-    background-color: green;
-    color: white;
+    color: black;
     margin: 5px;
     font-size: 1.5rem;
+}
+
+.gametype {
+    background-color: green;
+    color: white;
+}
+
+select {
+    width: 100px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: 3px solid black;
+    /* background-color: lightgreen; */
+    /* color: white; */
+    font-weight: bolder;
+}
+
+label h2 {
+    padding: 8px;
 }
 
 /* Storyline */
@@ -169,7 +192,7 @@ input {
     height: 100vh;
     background-color: gray;
     opacity: 0.8;
-    display: none;
+    /* display: none; */
 }
 
 
@@ -187,20 +210,52 @@ input {
 }
 
 #instruction button {
+    cursor: pointer;
     font-size: 3rem;
     background-color: yellow;
     padding: 5px;
 }
 
+.fruits {
+    width: 100vw;
+}
+
+.gift{
+    position: absolute;
+    animation: fall 3s linear infinite;
+}
+
+#orange {
+    width: 3%;
+}
+
+#apple {
+    width: 4%;
+}
+
+
+
+@keyframes fall {
+    0% {
+        top: -10vh;
+    }
+    100% {
+        top: 100vh;
+    }
+}
+
 /* Gameover */
 
 #gameover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-image: url(./assets/winner.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     text-align: center;
-    color: lightgrey;
+    color: black;
     font-size: 1.6rem;
     margin: 50px;
 }
@@ -209,36 +264,67 @@ input {
     margin-top: 40px;
 }
 
-.playagain button{
+.button {
+    display: flex;
+    flex-direction: column;
+}
+
+#playagainbtn{
+    cursor: pointer;
     background-color: green;
     margin: 10px;
-    padding: 10px;
+    padding: 5px;
     border-radius: 20px;
-    font-size: 3rem;
+    font-size: 2rem;
     color: white;
+    /* margin-top: 60px; */
+}
+
+#home {
+    cursor: pointer;
+    background-color: green;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 20px;
+    font-size: 2rem;
+    color: white;
+}
+
+#message h1{
+    font-size: 4rem;
+    padding: 20px;
+}
+
+#gameinfo {
+    background: whitesmoke;
+    opacity: 0.8;
+    width: 500px;
+    border-radius: 15px;
+    border: 5px solid;
 }
 
 /* Index responsive */
 
 @media (max-width:600px) {
     #logo {
-        font-size: 7rem;
+        font-size: 5rem;
         text-align: center;
         margin-top: 50px;
     }
 
     #main {
-        margin-bottom: 110px;
+        height: 100vh;
         background-image: url(./assets/mobile-bgm.jpg);
     }
 
     .container {
+        height: 100%;
         margin: 0px 10px;
     }
     
-    .form {
+    form {
         width: 300px;
-        height: 450px;
+        height: 45vh;
     }
 
     .difficulty {
@@ -282,17 +368,27 @@ input {
     }
 
     #instruction {
-        width: 200%;
-        height: 200vh;
+        width: 100%;
+        height: 100vh;
+        /* margin-left: 15px; */
     }
 
     #instruction h1{
-        font-size: 5rem;
+        font-size: 2.5rem;
     }
 
     #instruction ul {
-        font-size: 2.5rem;
-        width: 50vh;
+        font-size: 1.2rem;
+        width: 40vh;
+        margin: 0px;
+    }
+
+    #orange {
+        width: 50px;
+    }
+
+    #apple {
+        width: 50px;
     }
 
     #nextBtn {
@@ -302,9 +398,12 @@ input {
     /* Gameover */
 
     #gameover {
-        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
         margin: 0px;
-        margin-top: 250px;
     }    
 
     #gameover h1{
@@ -318,7 +417,24 @@ input {
         width: 340px;
     }
 
-    .playagain button {
+    #score {
+        padding: 5px;
+    }
+
+    #playagainbtn {
         font-size: 2rem;
+        margin-top: 0px;
+    }
+
+    #home {
+        font-size: 2rem;
+    }
+
+    #message h1{
+        padding: 20px;
+    }
+
+    #gameinfo {
+        width: 70%;
     }
 }
