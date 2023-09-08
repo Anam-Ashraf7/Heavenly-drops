@@ -1,12 +1,11 @@
 const basket = document.getElementById("basket")
-let score = 0
 let scoreBoard = document.querySelector("#score > span")
 let timer = document.querySelector("#time > span ")
-let time = 60
 let continueBtn = document.getElementById("continue")
 let instruction = document.getElementById("instruction")
 let pop = new Audio("./assets/pop.mp3")
-pop.preload = "auto";
+let score = 0
+let time = 60
 
 continueBtn.addEventListener("click",() => {
     instruction.style.display = "none"
@@ -72,8 +71,11 @@ let apple = document.querySelector("#apple")
 function generateFruits() {
     if (localStorage.getItem("difficulty") == "easy") {
         fruits.innerHTML += allfruits[generateNumber(0,allfruits.length)]
-        let viewWidth = generateNumber(10,90)
         currentFruit = document.querySelector(".fruits .gift:last-child")
+        const screenWidth = window.innerWidth;
+        const fruitWidth = currentFruit.clientWidth;
+        const maxTranslateX = screenWidth - fruitWidth;
+        let viewWidth = generateNumber(10,maxTranslateX / screenWidth * 100)
         currentFruit.style.transform = `translateX(${viewWidth}vw)`
         let second = generateNumber(1,3)
         currentFruit.style.animationDuration = `${second}s`
@@ -82,8 +84,11 @@ function generateFruits() {
     
     else if (localStorage.getItem("difficulty") == "medium") {
         fruits.innerHTML += allfruits[generateNumber(1,5)]
-        let viewWidth1 = generateNumber(10,90)
         currentFruit = document.querySelector(".fruits .gift:last-child")
+        const screenWidth = window.innerWidth;
+        const fruitWidth = currentFruit.clientWidth;
+        const maxTranslateX = screenWidth - fruitWidth;
+        let viewWidth1 = generateNumber(10,maxTranslateX / screenWidth * 100)
         currentFruit.style.transform = `translateX(${viewWidth1}vw)`
         let second1 = generateNumber(1,3)
         currentFruit.style.animationDuration = `${second1}s`
@@ -93,9 +98,12 @@ function generateFruits() {
     
     else if (localStorage.getItem("difficulty") == "difficult") {
         fruits.innerHTML += allfruits[generateNumber(1,5)]
-        let viewWidth = generateNumber(10,90)
         currentFruit = document.querySelector(".fruits .gift:last-child")
         currentFruit.style.transform = `translateX(${viewWidth}vw)`
+        const screenWidth = window.innerWidth;
+        const fruitWidth = currentFruit.clientWidth;
+        const maxTranslateX = screenWidth - fruitWidth;
+        let viewWidth = generateNumber(10,maxTranslateX / screenWidth * 100)
         let second = generateNumber(1,2)
         currentFruit.style.animationDuration = `${second}s`
         basket.style.width = 90 + "px"
@@ -154,17 +162,16 @@ function Collision() {
     detectCollision(currentFruit,basket)
 }
 
-
 function detectCollision(element1, element2) {
     let rect1 = element1.getBoundingClientRect();
     let rect2 = element2.getBoundingClientRect();
-
+    
     return !(rect1.right <= rect2.left || 
-             rect1.left >= rect2.right || 
-             rect1.bottom <= rect2.top || 
-             rect1.top >= rect2.bottom);
-}
-
+        rect1.left >= rect2.right || 
+        rect1.bottom <= rect2.top || 
+        rect1.top >= rect2.bottom);
+    }
+    
 // Timer and highscore
 
 function stopWatch() {
@@ -176,9 +183,11 @@ function stopWatch() {
     }
 }
 
+let highscore = parseInt(localStorage.getItem("highscore")) || 0;
+
 function gameOver() {
-    let highscore = parseInt(localStorage.getItem("highscore"))
-    if (score >= highscore) {
-        localStorage.setItem("highscore",score)
+    if (score > highscore) {
+        highscore = score
+        localStorage.setItem("highscore",highscore)
     }
 }

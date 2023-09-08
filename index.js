@@ -7,4 +7,4 @@ playBtn.addEventListener("click", () => {
     localStorage.setItem("nickname",input[1].value)
     localStorage.setItem("difficulty",gameDifficulty.value)
 })
-
+localStorage.clear()
