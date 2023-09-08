@@ -9,13 +9,13 @@
     box-sizing: border-box;
     font-family: 'Love Ya Like A Sister', cursive;
 }
+
 body{
     overflow: hidden;
-
 }
 
 #main {
-    background-image: url(./assets/bgm4.jpeg);
+    background-image: url(./assets/storyline-bgm1.jpeg);
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -25,10 +25,9 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* margin: 30px; */
 }
 
-.container > h1 {
+#logo {
     font-size: 15rem;
     font-family: 'Licorice', cursive;
     -webkit-text-stroke: 1px darkgreen;
@@ -49,7 +48,7 @@ form {
     border: 5px solid black;
 }
 
-form > button {
+#playbtn {
     background-color: green;
     color: white;
     padding: 3px 10px;
@@ -57,17 +56,14 @@ form > button {
     font-size: 1.5rem;
     cursor: pointer;
     border-radius: 10px;
+    width: 50%;
 }
 
 input {
-    height: 25px;
+    font-size: 1.5rem;
     width: 250px;
     border-radius: 5px;
     border: 3px solid black;
-}
-
-form > h2{
-    margin-top: 20px;
 }
 
 .difficulty {
@@ -92,13 +88,7 @@ select {
     font-size: 1.2rem;
     border-radius: 5px;
     border: 3px solid black;
-    /* background-color: lightgreen; */
-    /* color: white; */
     font-weight: bolder;
-}
-
-label h2 {
-    padding: 8px;
 }
 
 /* Storyline */
@@ -112,24 +102,21 @@ label h2 {
     height: 100vh;
 }
 
-.storyline {
+#storyline {
     display: flex;
     flex-direction: column;
     padding: 20px;
     background-color: white;
     align-items: center;
+    justify-content: space-evenly;
     border: 5px solid black;
     width: 800px;
     height: 600px;
+    opacity: 0.8;
 }
 
-.storyline > h1 {
-    padding: 20px;
-}
-
-.storyline p {
+#storyline p{
     font-size: 1.5rem;
-    padding: 10px;
 }
 
 #nextBtn {
@@ -137,6 +124,23 @@ label h2 {
     cursor: pointer;
     bottom: 12px;
     right: 30px;
+}
+
+.cursor {
+    border-right: 2px solid;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+h1,p,.cursor{
+    display: inline;
+}
+
+.cursor {
+    background-color: black;
 }
 
 /* Game */
@@ -192,9 +196,7 @@ label h2 {
     height: 100vh;
     background-color: gray;
     opacity: 0.8;
-    /* display: none; */
 }
-
 
 #instruction ul {
     font-size: 1.5rem;
@@ -202,7 +204,6 @@ label h2 {
     width: 40%;
     margin-bottom: 20px;
 }
-
 
 #instruction h1 {
     padding: 20px;
@@ -233,8 +234,6 @@ label h2 {
     width: 4%;
 }
 
-
-
 @keyframes fall {
     0% {
         top: -10vh;
@@ -256,12 +255,8 @@ label h2 {
     background-attachment: fixed;
     text-align: center;
     color: black;
-    font-size: 1.6rem;
-    margin: 50px;
-}
-
-#gameover img {
-    margin-top: 40px;
+    font-size: 1.6rem;  
+    margin-top: 10px;
 }
 
 .button {
@@ -277,7 +272,6 @@ label h2 {
     border-radius: 20px;
     font-size: 2rem;
     color: white;
-    /* margin-top: 60px; */
 }
 
 #home {
@@ -303,6 +297,11 @@ label h2 {
     border: 5px solid;
 }
 
+#name h1{
+    color: darkgoldenrod;
+    font-size: 5rem;
+}
+
 /* Index responsive */
 
 @media (max-width:600px) {
@@ -314,7 +313,7 @@ label h2 {
 
     #main {
         height: 100vh;
-        background-image: url(./assets/mobile-bgm.jpg);
+        background-image: url(./assets/storyline-bgm.jpg);
     }
 
     .container {
@@ -338,15 +337,16 @@ label h2 {
 
     /* Storyline */
 
-    .storyline {
+    #storyline {
         text-align: center;
         width: 300px;
         height: 570px;
         padding: 0px;
     }
 
-    .storyline p {
+    #storyline p {
         font-size: 1.1rem;
+        padding: 10px;
     }
 
     /* Game */
@@ -359,7 +359,6 @@ label h2 {
 
     #basket {
         width: 40%;
-        top: 75%;
     }
 
     .board {
@@ -370,7 +369,6 @@ label h2 {
     #instruction {
         width: 100%;
         height: 100vh;
-        /* margin-left: 15px; */
     }
 
     #instruction h1{
@@ -411,16 +409,6 @@ label h2 {
         font-size: 2rem;
     }
 
-    #gameover img {
-        margin: 20px 0px;
-        height: 130px;
-        width: 340px;
-    }
-
-    #score {
-        padding: 5px;
-    }
-
     #playagainbtn {
         font-size: 2rem;
         margin-top: 0px;
@@ -430,11 +418,12 @@ label h2 {
         font-size: 2rem;
     }
 
-    #message h1{
-        padding: 20px;
+    #gameinfo {
+        width: 300px;
     }
 
-    #gameinfo {
-        width: 70%;
+    #name h1{
+        color: darkgoldenrod;
+        font-size: 5rem;
     }
 }

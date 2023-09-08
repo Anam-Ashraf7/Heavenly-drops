@@ -1,6 +1,6 @@
 let playAgainBtn = document.getElementById("playagainbtn")
 let message  = document.getElementById("message")
-let names = document.querySelector("#names h1")
+let names = document.querySelector("#name h1")
 let score = localStorage.getItem("score")
 let scoreBoard = document.querySelector("#score span")
 let highscore = document.querySelector("#highscore span")

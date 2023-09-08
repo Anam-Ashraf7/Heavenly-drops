@@ -5,13 +5,17 @@ let timer = document.querySelector("#time > span ")
 let time = 60
 let continueBtn = document.getElementById("continue")
 let instruction = document.getElementById("instruction")
-
+let pop = new Audio("./assets/pop.mp3")
+pop.preload = "auto";
 
 continueBtn.addEventListener("click",() => {
     instruction.style.display = "none"
     generateFruits()
     gameLoop()
     setInterval(stopWatch,1000)
+    let bgm = new Audio("./assets/wondrous-water.mp3")
+    bgm.currentTime = 5
+    bgm.play()
 })
 
 // controls
@@ -31,7 +35,6 @@ basket.addEventListener("touchmove", (e) => {
         const touch = e.touches[0];
         const newPosition = touch.clientX;
         moveBasket(newPosition);
-
 });
 
 function moveBasket(newPosition) {
@@ -42,8 +45,7 @@ function moveBasket(newPosition) {
     let position
     if(leftPosition >= 0 && leftPosition < gameWidth - basketWidth){
         position = newPosition - halfBasketWidth;
-    } 
-    
+    }
     basket.style.left = `${position}px`;
 }
 
@@ -80,7 +82,6 @@ function generateFruits() {
     
     else if (localStorage.getItem("difficulty") == "medium") {
         fruits.innerHTML += allfruits[generateNumber(1,5)]
-        // fruits.innerHTML += allfruits[generateNumber(1,5)]
         let viewWidth1 = generateNumber(10,90)
         currentFruit = document.querySelector(".fruits .gift:last-child")
         currentFruit.style.transform = `translateX(${viewWidth1}vw)`
@@ -88,13 +89,6 @@ function generateFruits() {
         currentFruit.style.animationDuration = `${second1}s`
         basket.style.width = 120 + "px"
         basket.style.top = 82 + "%"
-        // gift.style.width = 2 + "%"
-        // let second2 = generateNumber(1,3)
-        // let viewWidth2 = generateNumber(10,90)
-        // secondFruit = document.querySelector(".fruits .gift:last-child")
-        // secondFruit.style.transform = `translateX(${viewWidth2}vw)`
-        // secondFruit.style.animationDuration = `${second2}s`
-        // secondFruit.style.border = 2 + "px" + " " + "solid"
     }
     
     else if (localStorage.getItem("difficulty") == "difficult") {
@@ -106,7 +100,6 @@ function generateFruits() {
         currentFruit.style.animationDuration = `${second}s`
         basket.style.width = 90 + "px"
         basket.style.top = 85 + "%"
-        // document.getElementById("apple").style.width = 2 + "%"
     }
 }
 
@@ -133,18 +126,23 @@ function fruitEscaped(){
     else if(detectCollision(currentFruit,basket)) {
         currentFruit.style.display = "none"
         score++
+        playPopSound()
         updateScore()
         generateFruits()
     }
-
     gameOver()
+}
+
+function playPopSound() {
+    pop.currentTime = 0;
+    pop.play();
 }
 
 function updateScore() {
     scoreBoard.innerText = score;
 }
 
-// generateFruits();
+// Render and collision
 
 function gameLoop(){
     fruitEscaped();
@@ -167,7 +165,7 @@ function detectCollision(element1, element2) {
              rect1.top >= rect2.bottom);
 }
 
-// setInterval(stopWatch,1000)
+// Timer and highscore
 
 function stopWatch() {
     --time
@@ -179,8 +177,8 @@ function stopWatch() {
 }
 
 function gameOver() {
-    let highscore = localStorage.getItem("highscore")
-    if (score > highscore) {
+    let highscore = parseInt(localStorage.getItem("highscore"))
+    if (score >= highscore) {
         localStorage.setItem("highscore",score)
     }
 }
