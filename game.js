@@ -111,6 +111,8 @@ function generateFruits() {
     }
 }
 
+// fruit escapes
+
 function fruitEscaped(){
     if (localStorage.getItem("difficulty") == "easy" && currentFruit.getBoundingClientRect().top >= window.innerHeight){
         currentFruit.style.display = "none"

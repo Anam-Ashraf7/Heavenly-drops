@@ -4,6 +4,7 @@ let para1 = document.getElementById("para1")
 let para2 = document.getElementById("para2")
 let functionEnabled = true
 const typingSound = new Audio("./assets/quick-mechanical-keyboard.mp3")
+let cursor2 = document.querySelector(".cursor2")
 
 nextBtn.addEventListener("click", () => {
     location.href="game.html";
@@ -21,6 +22,7 @@ function type(elementId,text) {
             setTimeout(typeText, 10)
         }
     }
+    cursor2.style.visibility = "hidden"
     typeText()
 }
 let text1 = `In a peaceful village nestled among rolling hills, the villagers are known for their kindness and generosity. 
@@ -31,9 +33,17 @@ let text2 = `As the Chosen One, you are bestowed with a sacred mission: to catch
     The entire village gathers in the village square to witness this extraordinary event, and they look to you with hope and anticipation.`
 
 type("para1",text1);
-type("para2",text2)
+
+setTimeout(para,5000)
+setTimeout(()=> {
+    cursor2.style.visibility = "visible"
+},5000)
+
+function para() {
+    type("para2",text2)
+}
     
-setTimeout(removeCursor,5000)
+setTimeout(removeCursor,10000)
 
 function removeCursor() {
     typingSound.pause()
