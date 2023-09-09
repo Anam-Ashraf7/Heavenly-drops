@@ -4,7 +4,6 @@ let para1 = document.getElementById("para1")
 let para2 = document.getElementById("para2")
 let functionEnabled = true
 const typingSound = new Audio("./assets/quick-mechanical-keyboard.mp3")
-typingSound.play()
 
 nextBtn.addEventListener("click", () => {
     location.href="game.html";
@@ -13,6 +12,7 @@ nextBtn.addEventListener("click", () => {
 console.log(localStorage.getItem("difficulty"))
 
 function type(elementId,text) {
+    typingSound.play()
     let index = 0;
     function typeText() {
         if (index < text.length) {
