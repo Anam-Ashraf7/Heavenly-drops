@@ -4,6 +4,7 @@ let para1 = document.getElementById("para1")
 let para2 = document.getElementById("para2")
 let functionEnabled = true
 const typingSound = new Audio("./assets/quick-mechanical-keyboard.mp3")
+typingSound.play()
 let cursor2 = document.querySelector(".cursor2")
 
 nextBtn.addEventListener("click", () => {
