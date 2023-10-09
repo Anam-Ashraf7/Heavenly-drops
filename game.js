@@ -19,8 +19,6 @@ continueBtn.addEventListener("click",() => {
 
 // controls
 
-console.log(localStorage.getItem("difficulty"))
-
 document.addEventListener("mousemove",(e) => {
     const mouseX = e.clientX
     if(mouseX > 80 && mouseX < window.innerWidth-75 ) {
@@ -79,7 +77,6 @@ function generateFruits() {
         currentFruit.style.transform = `translateX(${viewWidth}vw)`
         let second = generateNumber(1,3)
         currentFruit.style.animationDuration = `${second}s`
-        console.log(window.innerWidth)
     }
     
     else if (localStorage.getItem("difficulty") == "medium") {
